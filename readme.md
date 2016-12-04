@@ -22,7 +22,7 @@
 
   returns;
 
-  **{
+  ```{
     "Cars": [
       {
         "make": "Honda",
@@ -41,11 +41,11 @@
       }
     ]
   }
-***
+```
 
 
-use   'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
-result should similar like this;
+  use   'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
+  result should similar like this;
 
 {
   "origURL": "/api/shorturl",
