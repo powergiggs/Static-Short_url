@@ -1,43 +1,60 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+var express = require('express'); // declare express
+var bodyParser = require('body-parser'); // declare bodyParser
 var Bitly = require ('bitly');
-var app = express ();
-
+var app = express (); // declare app
 
 
 var port = 3000;
 
-var text = '{ "employees" : [' +
-'{ "firstName":"John" , "lastName":"Doe" },' +
-'{ "firstName":"Anna" , "lastName":"Smith" },' +
-'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+// json object store store as variable
+var text = { "Cars" : [
+{ "make":"Honda" , "model":"Civic", "year": "2013" },
+{ "make":"VW" , "model":"Jetta", "year": "2017" },
+{ "make":"Nissan" , "model":"Rogue", "year": "2016" } ]};
 
 app.use (bodyParser.json({type: 'application/json'}));
 app.use (bodyParser.urlencoded({extended: false}));
 
-app.get('/api', function(req, res){
+// url header Get
+app.get('/api/cars', function(req, res){
 
-
-	res.json(text);
+res.json(text);
 
 
 	});
 
-	//var long_url = escape(window.location.href);
 
-	var bitly = new Bitly('7c2f4389f76a01e991ae44f1e90511b1b9b018d1');
-	bitly.shorten('http://localhost:3000/api'), (function(req, res){
-	var short_url = res.data.url
-	//var long_url = escape(window.location.href);
-	//app.use(req.baseUrl, short_url);
-	res.send(short_url);
-	console.log(short_url);
-	//long_url = short_url;
+// url header Post
+app.post('/api/shorturl', function (req, res){
+	var longUrl = req.originalUrl;// fetch original url
+
+	// alphanumeric string to generate url from
+	var anStrings = 'ABCDEEFGHIJKLMNOPQRSTUVWXYZabcdeefghijklmnopqrstuvwxyz1234567890';
+	var strLength = 6;
+
+	var genUrl = '';
+
+	// for each to gnerate random url string
+	for(var i = 0; i < strLength; i++){
+		var rand = Math.round(Math.random() * anStrings.length-1)
+		//genUrl += sStrings.charAt(Math.random() * sStrings.length);
+		genUrl += anStrings.charAt(rand);
+	}
+
+//
+	var url = {
+		origURL: longUrl,
+		shortUrl: 'http://' + genUrl
+
+	}
+
+	res.json(url);
+	//console.log(url);
 
 });
 
 app.listen(port, function(){
-	console.log ('Our Server is running on port', port);
+	//console.log ('Our Server is running on port', port);
 
 
 });

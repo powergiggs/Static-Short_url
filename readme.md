@@ -1,48 +1,60 @@
-**Show Employee**
+**Stati Api Url Shortener**
 ----
-  Returns json data about a employees.
+  Basic Static API url Shortener
 
-* **URL**
 
- localhost:3000/api
+  **Installation **
+  You Will need Node JS and NPM to install project.
+  1. Run command npm i in the root folder of api project
+  2. App main file is src/server.js
+  3. Dependencies included in package.js file.
+
+
+
+* **Endpoints**
+
+ http://localhost:3000/api/cars
+ http://localhost:3000/api/shorturl
 
 * **Method:**
 
-  `GET`
-  
-*  **URL Params**
+  Use 'GET' method to recieve the json object of car data (http://localhost:3000/api/cars)
 
-		/api
+  returns;
+  {
+    "Cars": [
+      {
+        "make": "Honda",
+        "model": "Civic",
+        "year": "2013"
+      },
+      {
+        "make": "VW",
+        "model": "Jetta",
+        "year": "2017"
+      },
+      {
+        "make": "Nissan",
+        "model": "Rogue",
+        "year": "2016"
+      }
+    ]
+  }
+
+use   'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
+result should similar like this;
+
+{
+  "origURL": "/api/shorturl",
+  "shortUrl": "http://RXYx13"
+}
 
 
-   **Required:**
- 
-   `firstname =[string]`
-
-* **Data Params**
-
-  None
-
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `{firstname: "John", lastname : "Doe" }`
- 
-* **Error Response:**
-
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "User doesn't exist" }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "You are unauthorized to make this request." }`
-
-* **Sample Call:**
+* **Sample Calls for static api:**
 
   ```javascript
     $.ajax({
-      url: "localhost:3000/api",
+      url: "domainname/api/cars",
       dataType: "json",
       type : "GET",
       success : function(r) {
