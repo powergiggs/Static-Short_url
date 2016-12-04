@@ -12,16 +12,16 @@
 
 
 * **Endpoints**
-
+  ```
  http://localhost:3000/api/cars
  http://localhost:3000/api/shorturl
-
+  ```
 * **Method:**
 
   Use 'GET' method to recieve the json object of car data (http://localhost:3000/api/cars)
 
   returns;
-  {
+  ```  {
     "Cars": [
       {
         "make": "Honda",
@@ -41,14 +41,16 @@
     ]
   }
 
+    ```
+
 use   'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
 result should similar like this;
-
+  ```
 {
   "origURL": "/api/shorturl",
   "shortUrl": "http://RXYx13"
 }
-
+  ```
 
 * **Sample Calls for static api:**
 
