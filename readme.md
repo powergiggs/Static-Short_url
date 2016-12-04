@@ -3,7 +3,7 @@
   Basic Static API url Shortener
 
 
-  * **Installation **
+  * **Installation:**
   You Will need Node JS and NPM to install project.
   1. Run command npm i in the root folder of api project
   2. App main file is src/server.js
@@ -48,10 +48,13 @@
   use   'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
   result should similar like this;
 
+
+``
 {
   "origURL": "/api/shorturl",
   "shortUrl": "http://RXYx13"
 }
+``
 
 
 * **Sample Calls for static api:**
