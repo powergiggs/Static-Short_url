@@ -75,14 +75,16 @@
 
 * **Installation for Testing**
 
-  I recommend installling ESlint locally with npm
+  I recommend installling ESlint locally with npm;
 
   ``npm install eslint --save-dev``
 
-  Next install
+  Next install;
 
   ``npm install eslint-plugin-jsx-a11y --save-dev``
 
-  then initiate ESlint on file like so
+  then initiate ESlint on file like so;
 
   ``./node_modules/.bines/eslint src/server.js``
+
+  Note: Plugin is for Atom IDE.
