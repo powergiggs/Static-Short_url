@@ -54,7 +54,7 @@ app.post("/api/shorturl", function (req, res){
 });
 
 app.listen(port, function(){
-	//console.log ("Our Server is running on port", port);
+	console.log ("Our Server is running on port", port);
 
 
 });

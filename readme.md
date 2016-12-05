@@ -73,7 +73,7 @@
 
 
 
-* **Installation for Testing**
+* **Installation for code styling**
 
   I recommend installling ESlint locally with npm;
 
@@ -88,3 +88,19 @@
   ``./node_modules/.bines/eslint src/server.js``
 
   Note: Plugin is for Atom IDE.
+
+  * **Installation for unit testing**
+
+    Install all dependencies;
+
+    ``npm install  --save-d chai supertest mocha``
+
+    please also install mocha globally
+
+    * **Run Test**
+
+    `` npm test `` or `` mocha``
+
+    * **Routes**
+
+    Get /api/cars
