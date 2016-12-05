@@ -8,7 +8,7 @@
   You Will need Node JS and NPM to install project.
   1.Run command npm i in the root folder of api project
   2.App main file is src/server.js
-  3.Dependencies included in package.js file.
+  3.Dependencies included in package.json file.
 
 
 
@@ -70,3 +70,11 @@
       }
     });
   ```
+
+
+  * **Installation for Testing**
+  I recommend installling elint locally with npm
+  `npm install eslint --save-dev`
+
+  then initiate ESlint on file like so
+  `./node_modules/.bines/eslint src/server.js`

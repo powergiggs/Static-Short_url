@@ -1,6 +1,6 @@
-var express = require('express'); // declare express
-var bodyParser = require('body-parser'); // declare bodyParser
-var Bitly = require ('bitly');
+var express = require("express"); // declare express
+var bodyParser = require("body-parser"); // declare bodyParser
+var Bitly = require ("bitly");
 var app = express (); // declare app
 
 
@@ -12,11 +12,11 @@ var text = { "Cars" : [
 { "make":"VW" , "model":"Jetta", "year": "2017" },
 { "make":"Nissan" , "model":"Rogue", "year": "2016" } ]};
 
-app.use (bodyParser.json({type: 'application/json'}));
+app.use (bodyParser.json({type: "application/json"}));
 app.use (bodyParser.urlencoded({extended: false}));
 
 // url header Get
-app.get('/api/cars', function(req, res){
+app.get("/api/cars", function(req, res){
 
 res.json(text);
 
@@ -25,14 +25,14 @@ res.json(text);
 
 
 // url header Post
-app.post('/api/shorturl', function (req, res){
+app.post("/api/shorturl", function (req, res){
 	var longUrl = req.originalUrl;// fetch original url
 
 	// alphanumeric string to generate url from
-	var anStrings = 'ABCDEEFGHIJKLMNOPQRSTUVWXYZabcdeefghijklmnopqrstuvwxyz1234567890';
+	var anStrings = "ABCDEEFGHIJKLMNOPQRSTUVWXYZabcdeefghijklmnopqrstuvwxyz1234567890";
 	var strLength = 6;
 
-	var genUrl = '';
+	var genUrl = "";
 
 	// for each to gnerate random url string
 	for(var i = 0; i < strLength; i++){
@@ -44,7 +44,7 @@ app.post('/api/shorturl', function (req, res){
 //
 	var url = {
 		origURL: longUrl,
-		shortUrl: 'http://' + genUrl
+		shortUrl: "http://"+genUrl
 
 	}
 
@@ -54,7 +54,7 @@ app.post('/api/shorturl', function (req, res){
 });
 
 app.listen(port, function(){
-	//console.log ('Our Server is running on port', port);
+	//console.log ("Our Server is running on port", port);
 
 
 });
