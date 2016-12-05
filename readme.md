@@ -73,10 +73,10 @@
 
 
 
-  * **Installation for Testing**
+* **Installation for Testing**
 
-  I recommend installling elint locally with npm
-  
+  I recommend installling ESlint locally with npm
+
   ``npm install eslint --save-dev``
 
   Next install
