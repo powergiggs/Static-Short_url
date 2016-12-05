@@ -72,12 +72,17 @@
   ```
 
 
+
   * **Installation for Testing**
+
   I recommend installling elint locally with npm
-  `npm install eslint --save-dev`
+  
+  ``npm install eslint --save-dev``
 
   Next install
-  `npm install eslint-plugin-jsx-a11y --save-dev`
+
+  ``npm install eslint-plugin-jsx-a11y --save-dev``
 
   then initiate ESlint on file like so
-  `./node_modules/.bines/eslint src/server.js`
+
+  ``./node_modules/.bines/eslint src/server.js``
