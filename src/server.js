@@ -1,6 +1,5 @@
 var express = require("express"); // declare express
 var bodyParser = require("body-parser"); // declare bodyParser
-var Bitly = require ("bitly");
 var app = express (); // declare app
 
 
@@ -13,7 +12,7 @@ var text = { "Cars" : [
 { "make":"Nissan" , "model":"Rogue", "year": "2016" } ]};
 
 app.use (bodyParser.json({type: "application/json"}));
-app.use (bodyParser.urlencoded({extended: false}));
+app.use (bodyParser.urlencoded({extended: true}));
 
 // url header Get
 app.get("/api/cars", function(req, res){
