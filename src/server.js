@@ -1,9 +1,9 @@
-var express = require("express"); // declare express
-var bodyParser = require("body-parser"); // declare bodyParser
-var app = express (); // declare app
+const express = require("express"); // declare express
+const bodyParser = require("body-parser"); // declare bodyParser
+const app = express (); // declare app
 
 
-var port = 3000;
+const port = 3000;
 
 // json object store store as variable
 var text = { "Cars" : [
