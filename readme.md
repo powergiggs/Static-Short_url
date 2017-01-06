@@ -14,46 +14,18 @@
 
   * **Endpoints**
 
-   `http://localhost:3000/api/cars`
-   `http://localhost:3000/api/shorturl`
+   `http://localhost:3000/api/v1/url`
+
 
   * **Method:**
 
-  Use 'GET' method to recieve the json object of car data (http://localhost:3000/api/cars)
-
-  returns;
-
-  ``
-  {
-    "Cars": [
-      {
-        "make": "Honda",
-        "model": "Civic",
-        "year": "2013"
-      },
-      {
-        "make": "VW",
-        "model": "Jetta",
-        "year": "2017"
-      },
-      {
-        "make": "Nissan",
-        "model": "Rogue",
-        "year": "2016"
-      }
-    ]
-  }
-``
-
-
-  Use 'POST' method to send the orignal link to be shorten (http://localhost:3000/api/shorturl)
+  Use 'POST' method to send the orignal link to be shorten (http://localhost:3000/api/v1/url)
   result should similar like this;
 
 
 ``
 {
-  "origURL": "/api/shorturl",
-  "shortUrl": "http://RXYx13"
+  "shortened_url": "zhcOTe"
 }
 ``
 
