@@ -36,7 +36,7 @@
     $.ajax({
       url: "domainname/api/cars",
       dataType: "json",
-      type : "GET",
+      type : "POST",
       success : function(r) {
         console.log(r);
       }
