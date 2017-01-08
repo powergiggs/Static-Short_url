@@ -14,8 +14,11 @@ const router = express.Router();
 
     router.post ("/url", function(req, res){
       var urls = require("../routes/urlshortener.js");
-      req.body.shortenedURL = urls.genurl_Short();
-      res.json({shortened_url: req.body.shortenedURL});
+      var longUrl = req.body.url;
+      var shortUrl = "";
+      //req.body.shortenedURL = urls.genurl_Short(longUrl);
+      shortUrl = urls.genurl_Short(longUrl);
+      res.json({short_url: shortUrl});
 
 
 

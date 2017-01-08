@@ -17,6 +17,7 @@ function genurl_Short(){
 		var rand = Math.round(Math.random() * alphaNumeric.length-1)
 		//genUrl += sStrings.charAt(Math.random() * sStrings.length);
 		genURL += alphaNumeric.charAt(rand);
+	
 	};
 
 
