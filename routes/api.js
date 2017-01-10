@@ -2,7 +2,6 @@
 URL Shortener API
 Kevin Smith
 */
-
 const urls = require('../models/urls');
 
 module.exports = function(express){
@@ -14,7 +13,42 @@ const router = express.Router();
 
   });
 
-    // generate short url
+  // read all urls from db
+  router.get('/url', (req, res) => {
+    urls.findAll((err) => {
+      res.status(500).json(err);
+
+    },(data) => {
+      res.status(200).json(data);
+
+    })
+
+  });
+
+
+  // read one url by id
+  router.get('/url/:id', (req, res) => {
+    req.body.id = req.params.id
+    urls.find(req.body,(err) => {
+      res.status(500).json(err);
+    }, (data) => {
+      res.status(200).json(data);
+    })
+
+  });
+
+  // update urls
+  router.post('/url/:id', (req, res) => {
+    req.body.id = req.params.id
+    urls.update(req.body, (err) => {
+      res.status(500).json(err);
+    },(data) => {
+      res.status(200).json(data);
+    })
+
+  });
+
+    // Create  url 
   router.post ("/url", function(req, res){
     var reqURLS = require("../routes/urlshortener.js");
     var longUrl = req.body.long_url;
@@ -43,6 +77,19 @@ const router = express.Router();
       //res.send({"short_url":shortUrl});
 
   });
+
+  //delete
+  router.delete('/url/:id', (req, res) =>{
+    req.body.id = req.params.id
+    urls.destroy(req.body, (err) =>{
+      res.status(500).json(err);
+    },(data) =>{
+      res.status(200).json(data);
+    })
+
+  });
+
+
 
 
 return router;
