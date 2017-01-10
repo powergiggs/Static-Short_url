@@ -24,26 +24,9 @@ const urls = sequelize.define('url',{
     type: Sequelize.STRING,
 
   },
-  
+
 
 });
-
-// create db table drives
-
-/*const drive = sequelize.define('drive',{
-
-  drivename:{
-    type: Sequelize.STRING,
-  },
-
-});
-
-drive.hasMany(car,{
-  foreignKey: 'driveid',
-
-})
-*/
-
 
 sequelize.sync();
 exports.sequelize = sequelize;
