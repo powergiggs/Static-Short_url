@@ -34,9 +34,9 @@ Dynamic API url Shortener
   }
 
 ```
-`POST /http://localhost:3000/api/v1/urls/`
-`UPDATE /http://localhost:3000/api/v1/urls/:id`
-`DELETE /http://localhost:3000/api/v1/urls/:id`
+``POST /http://localhost:3000/api/v1/urls/``
+``UPDATE /http://localhost:3000/api/v1/urls/:id``
+``DELETE /http://localhost:3000/api/v1/urls/:id``
 
 
 * **Sample Calls for static api:**
