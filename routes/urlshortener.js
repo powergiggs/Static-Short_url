@@ -15,9 +15,8 @@ function genurl_Short(){
 	// for each to gnerate random url string
 	for(var i = 0; i < strLength; i++){
 		var rand = Math.round(Math.random() * alphaNumeric.length-1)
-		//genUrl += sStrings.charAt(Math.random() * sStrings.length);
 		genURL += alphaNumeric.charAt(rand);
-	
+
 	};
 
 
