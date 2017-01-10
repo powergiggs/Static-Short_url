@@ -14,7 +14,7 @@ const router = express.Router();
   });
 
   // read all urls from db
-  router.get('/url', (req, res) => {
+  router.get('/urls', (req, res) => {
     urls.findAll((err) => {
       res.status(500).json(err);
 
@@ -24,8 +24,6 @@ const router = express.Router();
     })
 
   });
-
-  router.get('')
 
 
   // read one url by id
