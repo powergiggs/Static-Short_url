@@ -31,4 +31,3 @@ const urls = sequelize.define('url',{
 sequelize.sync();
 exports.sequelize = sequelize;
 exports.urls = urls;
-//exports.drive = drive;
