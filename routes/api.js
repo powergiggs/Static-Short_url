@@ -3,6 +3,8 @@ URL Shortener API
 Kevin Smith
 */
 const urls = require('../models/urls');
+const util = require('../lib/util');
+
 
 module.exports = function(express){
 const router = express.Router();
@@ -16,9 +18,11 @@ const router = express.Router();
   // read all urls from db
   router.get('/urls', (req, res) => {
     urls.findAll((err) => {
+      util.debug("Error: something went wrong", err);
       res.status(500).json(err);
 
     },(data) => {
+      util.debug("all urls access", data);
       res.status(200).json(data);
 
     })
