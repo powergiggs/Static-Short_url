@@ -55,8 +55,8 @@ Dynamic API url Shortener
 
     * **Routes**
 
+    `Get /api/v1/urls`
 
-    Get /api/v1/urls
 
 
     * **Usage**
@@ -65,7 +65,7 @@ Dynamic API url Shortener
     and `process.env.DEBUG ==="false"` for DEBUG off.
 
     * **Sample DEBUG**
-    
+
 
     ```
   ******************************
