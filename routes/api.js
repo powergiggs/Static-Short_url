@@ -22,7 +22,7 @@ const router = express.Router();
       res.status(500).json(err);
 
     },(data) => {
-      util.debug("all urls access", data);
+      util.debug("All urls access", 'data');
       res.status(200).json(data);
 
     })
