@@ -53,9 +53,26 @@ Dynamic API url Shortener
   ```
 
 
-
-
-
     * **Routes**
 
+
     Get /api/v1/urls
+
+
+    * **Usage**
+    To turn on DEBUG mode within lib/utils.js
+    and enable `process.env.DEBUG === "true"` for DEBUG
+    and `process.env.DEBUG ==="false"` for DEBUG off.
+
+    * **Sample DEBUG**
+    
+
+    ```
+  ******************************
+  Access url by id from db
+
+  ******************************
+   api/v1/urls/:id
+  ++++++++++++++++++++++++++++++
+   success!
+    ```

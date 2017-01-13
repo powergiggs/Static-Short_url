@@ -22,7 +22,7 @@ const router = express.Router();
       res.status(500).json(err);
 
     },(data) => {
-      util.debug("All urls access", 'data');
+      util.debug("Read all urls from db", "api/v1/urls/", 'success!');
       res.status(200).json(data);
 
     })
@@ -34,10 +34,12 @@ const router = express.Router();
   router.get('/urls/:id', (req, res) => {
     req.body.id = req.params.id
     urls.find(req.body,(err) => {
+    util.debug("Error: something went wrong", err);
       res.status(500).json(err);
     }, (data) => {
+      util.debug("Access url by id from db", "api/v1/urls/:id", 'success!');
       res.status(200).json(data.short_url);
-      res.links(200, data.longUrl);
+
     })
 
   });
@@ -46,8 +48,10 @@ const router = express.Router();
   router.post('/urls/:id', (req, res) => {
     req.body.id = req.params.id
     urls.update(req.body, (err) => {
+    util.debug("Error: something went wrong", err);
       res.status(500).json(err);
     },(data) => {
+      util.debug("Update url by id to db", "api/v1/urls/:id", 'success!');
       res.status(200).json(data);
     })
 
@@ -60,15 +64,17 @@ const router = express.Router();
     var shortUrl = "";
     shortUrl = reqURLS.genurl_Short(longUrl);
     req.body.short_url = "https://" + shortUrl;
-    //res.send({"short_url":shortUrl});
+
 
     //create database instances for long url
     urls.create(req.body, (err) => {
+        util.debug("Error: something went wrong", err);
       res.status(500).json(err);
-    }, (data)=>{
+        }, (data)=>{
+      util.debug("create url to add to db", "api/v1/urls", 'success!');
       res.status(200).json(data);
 
-    //res.send({"short_url":shortUrl});
+
     // create database instances for short url
     urls.create({"short_url" : short_url}).then(function(urls){
 
@@ -78,12 +84,14 @@ const router = express.Router();
 
   });
 
-  //delete
+  // delete
   router.delete('/urls/:id', (req, res) =>{
     req.body.id = req.params.id
     urls.destroy(req.body, (err) =>{
+      util.debug("Error: something went wrong", err);
       res.status(500).json(err);
     },(data) =>{
+      util.debug("Delete url by id from db", "api/v1/urls:id", 'success!');
       res.status(200).json(data);
     })
 
