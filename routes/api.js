@@ -40,7 +40,7 @@ module.exports = function (express) {
 
   // update urls
   router.post('/urls/:id', (req, res) => {
-  req.body.id = req.params.id;
+   req.body.id = req.params.id;
     urls.update(req.body, (err) => {
       util.debug('Error: something went wrong', err);
       res.status(500).json(err);
