@@ -85,6 +85,7 @@ To include Eslint in project install using npm:
 ``npm install eslint --save dev``
 
 for comprehensive documentation visit;
+
 ``http://eslint.org/docs/user-guide/getting-started``
 
 also setup a config file in main folder name '.eslintrc.json' by running command;
@@ -116,9 +117,10 @@ also setup a config file in main folder name '.eslintrc.json' by running command
 }
 ```
 
-For eslint to work with atom ide install linter-eslint \n
+For eslint to work with atom ide install linter-eslint
 
 ``apm install linter-eslint``
 
-For full documentation for integration\n
+For full documentation for integration
+
 ``https://atom.io/packages/linter-eslint``
