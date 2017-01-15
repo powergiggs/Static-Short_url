@@ -60,7 +60,7 @@ Dynamic API url Shortener
 
 
     * **Usage**
-    
+
     To turn on DEBUG mode within lib/utils.js
     and enable `process.env.DEBUG === "true"` for DEBUG
     and `process.env.DEBUG ==="false"` for DEBUG off.
@@ -77,3 +77,46 @@ Dynamic API url Shortener
   ++++++++++++++++++++++++++++++
    success!
     ```
+
+* **Eslint Style Guide**
+
+To include Eslint in project install using npm:
+``npm install eslint --save dev``
+
+for comprehensive documentation visit;
+``http://eslint.org/docs/user-guide/getting-started``
+
+also setup a config file in main folder name '.eslintrc.json' by running command;
+``eslint --init``
+
+* **sample file**
+
+```
+{
+  "env": {
+    "node": true
+  },
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import"
+    ],
+    "rules": {
+  		"new-cap": 0,
+  		"prefer-template": 0,
+  		"global-require": 0
+  	},
+  	"globals": {
+  		"describe": true,
+  		"it": true
+  	}
+}
+```
+
+For eslint to work with atom ide install linter-eslint
+
+``apm install linter-eslint``
+
+For full documentation for integration
+``https://atom.io/packages/linter-eslint``
