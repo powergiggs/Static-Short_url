@@ -38,7 +38,7 @@ const router = express.Router();
       res.status(500).json(err);
     }, (data) => {
       util.debug("Access url by id from db", "api/v1/urls/:id", 'success!');
-      res.status(200).json(data.short_url);
+      res.status(200).json(data);
 
     })
 
