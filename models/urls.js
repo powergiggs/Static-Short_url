@@ -1,58 +1,51 @@
 const db = require('./db');
 
 // add urls to db
-exports.create = (payload, err, success) =>{
-
+exports.create = (payload, err, success) => {
   db.urls.create(payload).then(success).catch(err);
-}
+};
 
-//get all urls from db
-exports.findAll = (err, success)=>{
+// get all urls from db
+exports.findAll = (err, success) => {
   db.urls.findAll().then(success).catch(err);
-
-
-}
+};
 
 // get db urls by id
 
-exports.find = (payload, err, success) =>{
+exports.find = (payload, err, success) => {
   db.urls.find({
-    where:{
-      id:payload.id,
+    where: {
+      id: payload.id,
     },
 
-    include:[{
-      all:true,
-      nested:true,
+    include: [{
+      all: true,
+      nested: true,
 
-    }]
+    }],
 
   }).then(success).catch(err);
-
-
-}
+};
 
 // update db record
-exports.update = (payload, err, success) =>{
+exports.update = (payload, err, success) => {
   db.urls.find({
-    where:{
+    where: {
       id: payload.id,
     },
 
 
-  }).then((existingData)=>{
+  }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-}
+};
 
 // delete db record by id
 
-exports.destroy = (payload, err, success) =>{
+exports.destroy = (payload, err, success) => {
   db.urls.destroy({
-    where:{
+    where: {
       id: payload.id,
     },
   }).then(success).catch(err);
-
-
-}
+};
