@@ -65,7 +65,26 @@ Dynamic API url Shortener
     and enable `process.env.DEBUG === "true"` for DEBUG
     and `process.env.DEBUG ==="false"` for DEBUG off.
 
-    * **Sample DEBUG**
+
+    * **Unit Testing:**
+
+    Dependencies Installation to perform unit test will require mocha, chai and supertest.
+    global Installation is recommended like so:
+
+    ``npm install -g mocha chai supertest ``
+
+    Then simple type ``mocha`` within terminal to execute test
+    sample test should look like this:
+    ```
+    Urls API
+    ✓ GET /api/v1/urls returns multiple urls (40ms)
+    ✓ GET /api/v1/urls/:id returns obj with id, long url, short url, created at and updated at
+    ✓ POST /api/v1/urls update with new url
+
+    ```
+
+
+    * **Sample DEBUG:**
 
 
     ```
