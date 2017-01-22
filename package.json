@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A Static API",
   "main": "src/server.js",
+  "engines":{
+    "node": "v7.2.0",
+    "npm": "3.10.9"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
