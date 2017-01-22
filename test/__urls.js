@@ -1,52 +1,127 @@
+
+const debug = require('debugging-tool');
 const expect = require('chai').expect;
 const request = require('supertest');
-const server = request('http://localhost:3000');
+const server = require('../src/server');
 
 
-  describe('Urls API', () => {
-    var app;
+// data object variable for routes and method
+const routes = [
+  {
+    routeUrl: '/api/v1/urls',
+    title: 'Read all urls from db',
+    method: 'get',
+  },
+  {
+    routeUrl: '/api/v1/urls',
+    title: 'Create new db url ',
+    method: 'post',
+  },
+  {
+    routeUrl: '/api/v1/urls:id',
+    title: 'Get url by id from db',
+    method: 'get',
+  },
+  {
+    routeUrl: '/api/v1/urls:id',
+    title: 'Update url by id to db',
+    method: 'post',
+  },
+  {
+    routeUrl: '/api/v1/urls:id',
+    title: 'Delete url by id from db',
+    method: 'delete',
+  },
+];
 
-    // Test for Multiple urls
-    it('GET /api/v1/urls returns multiple urls', (done) => {
-      server.get('/api/v1/urls')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          const urls = res.body;
 
-          // Save one single app from the list to test on in later tests
-          this.app = urls[0]
+  describe('Urls Routes', () => {
 
-          expect(urls.length).to.be.above(0);
-        })
-        .end(done);
-    });
+    const mockURL = {
+      id: 10,
+      longUrl: 'https://www.npmjs.com/package/debugging-tool',
+      short_url: 'https://HU9r9',
 
-    // Test for a single urls by id
-    it('GET /api/v1/urls/:id returns obj with id, long url, short url, created at and updated at', (done) => {
-        server.get('/api/v1/urls/' + this.app.id)
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          const url = res.body;
-          expect(url).to.have.property('id');
-          expect(url).to.have.property('long_url');
-          expect(url).to.have.property('short_url');
-        })
-        .end(done);
-    });
 
-    // Test for adding urls
-    it('POST /api/v1/urls update with new url', (done) => {
-      server.post('/api/v1/urls')
-     .set('Accept', 'Application/json')
-     .send({
-       long_url: 'http://findfastbusinessfunds.com/'
-     })
-     .expect((res) => {
-       const url = res.body;
-       expect(url.long_url).to.equal('http://findfastbusinessfunds.com/');
-     })
-     .end(done);
+    };
+    // assign api server to a variable
+    const appServer = request(server.server);
+
+
+    // loop through the routes data object
+    routes.forEach((data) => {
+      // check to see if the method condition is match with each case
+      switch(data.method) {
+        // read all test
+        case 'get':
+          it(data.title, (done) => {
+            appServer.get(data.routeUrl)
+          .set('Accept', 'application/json')
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            expect(res.body.length).to.be.above(0);
+          // debug.debug(data.routeUrl + 'success');
+          });
+            done();
+          });
+          // break case once condition is true
+          break;
+          // creat data test
+          case 'post':
+            it(data.title, (done) => {
+              appServer.post(data.routeUrl)
+            .send(mockURL)
+            .expect((res) => {
+              expect(res.body.long_url).to.equal('https://www.npmjs.com/package/debugging-tool');
+            });
+              done();
+            });
+
+          break;
+          // read by id test
+            case 'get':
+          it(data.title, (done) => {
+            appServer.get(data.routeUrl + mockURL.id)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect((res) => {
+              expect(res.body).to.have.property('long_url');
+              expect(res.body).to.have.property('short_url');
+              expect(res.body).to.have.property('id').equal(mockURL.id);
+            });
+            done();
+          });
+
+          break;
+          // update test
+        case 'post':
+          it(data.title, (done) => {
+            appServer.post(data.routeUrl + mockURL.id)
+            .send({
+              long_url: 'http://findfastbusinessfunds.com/'
+            })
+            .expect((res) => {
+              expect(res.body.long_url).to.equal('http://findfastbusinessfunds.com/');
+              expect(res.body).to.have.property('id').equal(mockURL.id);
+            });
+            done();
+          });
+
+          break;
+          // delete test
+        case 'delete':
+          it(data.title, (done) => {
+            appServer.delete(data.routeUrl + mockURL.id)
+              .expect((res) => {
+                expect(res.body).to.have.property('long_url');
+                expect(res.body).to.have.property('short_url');
+                expect(res.body).to.have.property('id').equal(mockURL.id);
+              });
+            done();
+          });
+          break;
+
+
+      }
     });
   });

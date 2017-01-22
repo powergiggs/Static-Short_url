@@ -3,7 +3,7 @@ URL Shortener API
 Kevin Smith
 */
 const urls = require('../models/urls');
-const util = require('../lib/util');
+const debug = require('debugging-tool');
 
 
 module.exports = function (express) {
@@ -17,10 +17,10 @@ module.exports = function (express) {
   // read all urls from db
   router.get('/urls', (req, res) => {
     urls.findAll((err) => {
-      util.debug('Error: something went wrong', err);
+      debug.debug('Error: something went wrong', err);
       res.status(500).json(err);
     }, (data) => {
-      util.debug('Read all urls from db', 'api/v1/urls/', 'success!');
+      debug.debug('Read all urls from db', 'api/v1/urls/', 'success!');
       res.status(200).json(data);
     });
   });
@@ -30,10 +30,10 @@ module.exports = function (express) {
   router.get('/urls/:id', (req, res) => {
     req.body.id = req.params.id;
     urls.find(req.body, (err) => {
-      util.debug('Error: something went wrong', err);
+      debug.debug('Error: something went wrong', err);
       res.status(500).json(err);
     }, (data) => {
-      util.debug('Access url by id from db', 'api/v1/urls/:id', 'success!');
+      debug.debug('Access url by id from db', 'api/v1/urls/:id', 'success!');
       res.status(200).json(data);
     });
   });
@@ -42,7 +42,7 @@ module.exports = function (express) {
   router.post('/urls/:id', (req, res) => {
    req.body.id = req.params.id;
     urls.update(req.body, (err) => {
-      util.debug('Error: something went wrong', err);
+      debug.debug('Error: something went wrong', err);
       res.status(500).json(err);
     }, (data) => {
       util.debug('Update url by id to db', 'api/v1/urls/:id', 'success!');
@@ -61,10 +61,10 @@ module.exports = function (express) {
 
     // create database instances for long url
     urls.create(req.body, (err) => {
-      util.debug('Error: something went wrong', err);
+      debug.debug('Error: something went wrong', err);
       res.status(500).json(err);
     }, (data) => {
-      util.debug('create url to add to db', 'api/v1/urls', 'success!');
+      debug.debug('create url to add to db', 'api/v1/urls', 'success!');
       res.status(200).json(data);
 
     // create database instances for short url
@@ -78,10 +78,10 @@ module.exports = function (express) {
   router.delete('/urls/:id', (req, res) => {
     req.body.id = req.params.id;
     urls.destroy(req.body, (err) => {
-      util.debug('Error: something went wrong', err);
+      debug.debug('Error: something went wrong', err);
       res.status(500).json(err);
     }, (data) => {
-      util.debug('Delete url by id from db', 'api/v1/urls:id', 'success!');
+      debug.debug('Delete url by id from db', 'api/v1/urls:id', 'success!');
       res.status(200).json(data);
     });
   });
