@@ -69,10 +69,12 @@ Dynamic API url Shortener
     Then simple type ``mocha`` within terminal to execute test
     sample test should look like this:
     ```
-    Urls API
-    ✓ GET /api/v1/urls returns multiple urls (40ms)
-    ✓ GET /api/v1/urls/:id returns obj with id, long url, short url, created at and updated at
-    ✓ POST /api/v1/urls update with new url
+    Urls Routes
+    ✓ Read all urls from db
+    ✓ Create new db url
+    ✓ Get url by id from db
+    ✓ Update url by id to db
+    ✓ Delete url by id from db
 
     ```
 
