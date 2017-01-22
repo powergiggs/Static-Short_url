@@ -17,6 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // declare and set the routes
 app.use('/api/v1', require('../routes/api.js')(express));
-exports.server = app.listen(port, () => {
+exports.server = app.listen(process.env.PORT || port, () => {
   //debug.debug('Our Server is running on port', port, 'success!');
 });
