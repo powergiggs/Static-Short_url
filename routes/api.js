@@ -3,7 +3,7 @@ URL Shortener API
 Kevin Smith
 */
 const urls = require('../models/urls');
-const debug = require('debugging-tool');
+//const debug = require('debugging-tool');
 
 
 module.exports = function (express) {

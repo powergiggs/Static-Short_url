@@ -1,5 +1,5 @@
 
-const debug = require('debugging-tool');
+//const debug = require('debugging-tool');
 const expect = require('chai').expect;
 const request = require('supertest');
 const server = require('../src/server');
