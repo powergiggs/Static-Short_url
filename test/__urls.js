@@ -60,7 +60,7 @@ const routes = [
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect((res) => {
-            expect(res.body.length).to.be.above(0);
+            expect(res.body.length).to.be.above(100);
           // debug.debug(data.routeUrl + 'success');
           });
             done();
