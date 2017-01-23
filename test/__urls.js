@@ -1,5 +1,6 @@
 
 //const debug = require('debugging-tool');
+process.env.NODE_ENV = 'test';
 const expect = require('chai').expect;
 const request = require('supertest');
 const server = require('../src/server');
@@ -59,7 +60,7 @@ const routes = [
           .set('Accept', 'application/json')
           .expect('Content-Type', /json/)
           .expect((res) => {
-            expect(res.body.length).to.be.above(100);
+            expect(res.body.length).to.be.above(0);
           // debug.debug(data.routeUrl + 'success');
           });
             done();
