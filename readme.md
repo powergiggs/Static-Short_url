@@ -138,3 +138,39 @@ For eslint to work with atom ide install linter-eslint
 For full documentation for integration
 
 ``https://atom.io/packages/linter-eslint``
+
+* **Workflow**
+
+Creating a branch within terminal;
+``git checkout -b branchname master``
+
+Push branch to repository and commit changes.
+``git push origin -u branchname``
+``git commit -a -m "msg" git pus``
+
+Merging branch with master and tagging.
+```
+ git checkout master
+ git pull
+ git pull origin branchname
+ git push
+   ```
+Creating release branch;
+```
+git tag v1.8.0 "v1.8.0"
+git tag    
+git push origin v1.8.0
+```
+
+* **Deployment**
+
+1. setup heroku server by creating new app.
+2. creating a deploy branch from master with git repo.
+3. do a pull request with deploy branch and master pending merge once the codeship unit test is complete.
+4. select deployment method by using git hub and selecting repo and connect.
+5. select your deployment branch and enable automatic deploys.
+6. select wait for CI to pass before deploy.
+7. setup database resources and and require config variables to connect to db.
+
+8. check with build logs for possible errors.
+9. setup pipeline to secure a stage and production app deployment.
