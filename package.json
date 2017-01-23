@@ -1,6 +1,6 @@
 {
   "name": "static",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Static API",
   "main": "src/server.js",
   "engines":{
@@ -26,7 +26,8 @@
     "mysql": "^2.10.0",
     "node-bitlyapi": "^0.4.0",
     "sequelize": "^3.29.0",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "debugging-tool": "^2.0.0"
 
 
   },
