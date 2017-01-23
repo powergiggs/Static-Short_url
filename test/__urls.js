@@ -1,5 +1,6 @@
 
 //const debug = require('debugging-tool');
+process.env.NODE_ENV = 'test';
 const expect = require('chai').expect;
 const request = require('supertest');
 const server = require('../src/server');
