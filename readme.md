@@ -1,9 +1,9 @@
-**Dynamic Api Url Shortener**
-----
-Dynamic API url Shortener
 
 
-  * **Installation:**
+# Dynamic API url Shortener #
+
+
+## Installation:
 
   You Will need Node JS and NPM to install project.
   1.Run command npm i in the root folder of api project
@@ -12,13 +12,13 @@ Dynamic API url Shortener
 
 
 
-  * **Endpoints**
+## Endpoints
 
    `http://localhost:3000/api/v1/urls`
    `http://localhost:3000/api/v1/urls/id`
 
 
-  * **Method:**
+## Method:
 
   Use 'get' method to send the orignal link to be shorten (http://localhost:3000/api/v1/urls)
   result should similar like this;
@@ -39,7 +39,7 @@ Dynamic API url Shortener
 ``DELETE /http://localhost:3000/api/v1/urls/:id``
 
 
-* **Sample Calls for static api:**
+## Sample Calls for static api:
 
   ```javascript
     $.ajax({
@@ -53,13 +53,13 @@ Dynamic API url Shortener
   ```
 
 
-    * **Routes**
+## Routes
 
     `Get /api/v1/urls`
 
 
 
-      * **Unit Testing:**
+## Unit Testing:
 
     Dependencies Installation to perform unit test will require mocha, chai and supertest.
     global Installation is recommended like so:
@@ -78,21 +78,45 @@ Dynamic API url Shortener
 
     ```
 
+# Utility Tool
+``npm install debugging-tool``
 
-    * **Sample DEBUG:**
+
+##  DEBUG Tool
+### Usage
+debugging-tool can be use in replace of console.log
+to create streams of logs to the console in a color and dynamic
+way with recognize notification colors
+example use
+```
+const util = require('debugging-tool')
+debug.debug(title, message', status);
+
+```
+#### Terminal result
+```
+success!
+==============DEBUGGING=============
+Our Server is running on port
+==============DEBUGGING=============
+MSG: "3000"
+
+TIME: 1/26/2017, 12:59:17 AM
+```
+note also the environment variable must be set
+
+``DEBUG=true``
+
+## Version Bump Task Runner
+The Version Bump Task Runner uses gulp to automatically bump version from package.json.
+
+``npm install`` to include dependencies
+simply enter ``gulp`` within terminal.
 
 
-    ```
-  ******************************
-  Access url by id from db
 
-  ******************************
-   api/v1/urls/:id
-  ++++++++++++++++++++++++++++++
-   success!
-    ```
 
-* **Eslint Style Guide**
+## Eslint Style Guide
 
 To include Eslint in project install using npm:
 
@@ -106,7 +130,7 @@ also setup a config file in main folder name '.eslintrc.json' by running command
 
 ``eslint --init``
 
-* **sample file**
+## sample file
 
 ```
 {
@@ -139,7 +163,7 @@ For full documentation for integration
 
 ``https://atom.io/packages/linter-eslint``
 
-* **Workflow**
+## Workflow
 
 Creating a branch within terminal;
 ``git checkout -b branchname master``
@@ -162,7 +186,7 @@ git tag
 git push origin v1.8.0
 ```
 
-* **Deployment**
+## Deployment
 
 1. setup heroku server by creating new app.
 2. creating a deploy branch from master with git repo.

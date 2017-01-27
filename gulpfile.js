@@ -8,13 +8,14 @@ const patch = util.bumpIt('1.1.0', 'patch');
 
 // gulp function to increase version
 gulp.task('bump', function() {
-gulp.src('./package.json')
-.pipe(guBump({ type: patch }))
+  return gulp.src('./package.json')
+.pipe(guBump({ version: minor }))
 .pipe(gulp.dest('./'));
 });
- gulp.task('watch', function() {
-   gulp.watch('./package.json', ['bump']);
+// task watch if package.json change
+// gulp.task('watch', function() {
+//   gulp.watch('./package.json', ['bump']);
+// });
 
- });
-
-gulp.task('default', ['bump', 'watch']);
+// default tash is run with other task
+gulp.task('default', ['bump']);
