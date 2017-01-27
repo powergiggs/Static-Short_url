@@ -1,30 +1,36 @@
 const gulp = require('gulp');
-const guBump = require('gulp-bump');
+const bump = require('gulp-bump');
 const util = require('debugging-tool');
+const fs = require('fs');
 
-// store version from bumpit uitility tool
-const major = util.bumpIt('1.1.0', 'major');
-const minor = util.bumpIt('1.1.0', 'minor');
-const patch = util.bumpIt('1.1.0', 'patch');
 // store files paths to monitor changes
 const folders = {
   models: ['db.js', 'urls.js'],
-  routes: ['api.js'],
-  test: ['__urls.js']
+  routes: ['api.js']
 };
 
-// gulp function to increase version
-gulp.task('bump', function() {
+// function to read json package
+const getJsonPkg = function () {
+  return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+};
+
+// gulp task function to increase version
+gulp.task('bump', function () {
+  // store read package
+  const pkg = getJsonPkg();
+  // push read package version into bumpit and store as variable
+  const patch = util.bumpIt(pkg.version, 'patch');
+  const major = util.bumpIt(pkg.version, 'major');
+  const minor = util.bumpIt(pkg.version, 'minor');
   return gulp.src('./package.json')
-.pipe(guBump({ version: patch }))
+.pipe(bump({ version: patch }))
 .pipe(gulp.dest('./'));
 });
 
-// function to watch foldes for chages then bump version
-gulp.task('watch', function() {
+// function to watch foldes for changes then bump version
+gulp.task('watch', function () {
   gulp.watch(folders.models, ['bump']);
   gulp.watch(folders.routes, ['bump']);
-  gulp.watch(folders.test, ['bump']);
 });
 
 // default task is run with other task
